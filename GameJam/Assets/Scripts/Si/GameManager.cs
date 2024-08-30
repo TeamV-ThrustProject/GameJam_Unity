@@ -34,13 +34,16 @@ public class GameManager : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         t++;
         if (t % Delay==0)
             switch(Stage)
             {
+                case 2:
+                    ObjectPoolManager.instance.GetObj("Apple").transform.position =
+                                ObstacleSpawnPos[1].transform.position + new Vector3(Random.Range(-9.0f, 9.0f), 0, Random.Range(-9.0f, 9.0f));
+                    break;
                 case 4:
-                    Debug.Log("asdsada");
                     List<int> list = SpawnBearRunObject();
                     Shuffle(list);
                     for(int i=0;i<5;i++)
