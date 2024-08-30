@@ -66,7 +66,6 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("rock");
             Hp--;
             collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-
             collision.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward * 20 + transform.up * 15), ForceMode.Impulse);
         }
         if(collision.gameObject.CompareTag("Tree"))
@@ -74,6 +73,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("tree"); 
             collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             collision.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward * 20+transform.up*15), ForceMode.Impulse);
+            collision.gameObject.GetComponent<BearRunObjectBase>().SetRelease();
 
         }
     }
