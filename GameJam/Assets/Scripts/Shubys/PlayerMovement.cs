@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     protected virtual void Update()
     {
+        //transform.localPosition.
         dir.x = Input.GetAxis("Horizontal");
         //dir.z = Input.GetAxisRaw("Vertical");
         dir.z = forwardSpeed;
