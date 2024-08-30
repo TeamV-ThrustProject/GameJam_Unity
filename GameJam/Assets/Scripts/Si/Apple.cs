@@ -14,9 +14,6 @@ public class Apple : ObjectBase
     // Update is called once per frame
     void Update()
     {
-        t++;
-        if(t>120)
-            ReleaseObject();
-        Debug.Log(t);
+
     }
 }
