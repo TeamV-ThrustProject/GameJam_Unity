@@ -6,8 +6,9 @@ TagManager:
   tags:
   - Ground
   - End
-  - Rock
+  - Obstacle
   - Tree
+  - Rock
   layers:
   - Default
   - TransparentFX
