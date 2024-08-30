@@ -14,7 +14,7 @@ public class CameraMovement : MonoBehaviour
 
     void Update()
     {
-        
+        Debug.Log("ºÎ¸ð");
     }
 
     private void FixedUpdate()
