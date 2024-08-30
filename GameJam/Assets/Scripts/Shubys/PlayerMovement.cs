@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
-
+        
     public float forwardSpeed = 1.0f;
     public float speed = 1.0f;
     public float horizontalRot;
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             collision.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward * 20 + transform.up * 15), ForceMode.Impulse);
             collision.gameObject.GetComponent<BearRunObjectBase>().SetRelease();
-            collision.gameObject.GetComponent<BearRunObjectBase>().Turn = true;
+            collision.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
 
         if (collision.gameObject.CompareTag("Water"))
@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             collision.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward * 20+transform.up*15), ForceMode.Impulse);
             collision.gameObject.GetComponent<BearRunObjectBase>().SetRelease();
-            collision.gameObject.GetComponent<BearRunObjectBase>().Turn = true;
+            collision.gameObject.GetComponent<BoxCollider>().enabled = false;
 
 
         }

@@ -21,6 +21,11 @@ public class ChickenPlayer : PlayerMovement
     {
         base.Update();
         HandleJump();
+        if(Hp<=0)
+        {
+            GetComponent<CutSceneController>().PlayCutScene();
+            speed = 0;
+        }
     }
 
     void HandleJump()

@@ -23,8 +23,8 @@ public class BearPlayer : PlayerMovement
         base.speed += 0.01f;
         if(BearHealth <= 0)
         {
-            Debug.Log("Dead");
-            //Destroy(CharRigidbody.gameObject);
+            GetComponent<CutSceneController>().PlayCutScene();
+            speed = 0;
         }
     }
 

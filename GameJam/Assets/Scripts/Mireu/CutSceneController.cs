@@ -16,6 +16,10 @@ public class CutSceneController : MonoBehaviour
     public GameObject cutSceneObject;
     public float cutSceneDuration = 3.5f;
 
+    [SerializeField]
+    GameObject[] player; 
+    
+
     bool isNaturalDead;
 
     private void Start()
