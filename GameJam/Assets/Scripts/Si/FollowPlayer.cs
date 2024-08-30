@@ -22,8 +22,9 @@ public class FollowPlayer : MonoBehaviour
     {
         if (MoveStage == GameManager.GameManagerInstance.Stage)
         {
-            transform.rotation = Player.transform.rotation;
             transform.position += transform.forward * Time.deltaTime * pm.speed;
+            if (MoveStage != 4)
+                transform.rotation = Player.transform.rotation;            
         }
     }
 }

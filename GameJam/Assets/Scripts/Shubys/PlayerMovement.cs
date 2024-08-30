@@ -13,8 +13,9 @@ public class PlayerMovement : MonoBehaviour
     public float rotWeight = 0;
 
     Vector3 dir;
-    
 
+    [SerializeField]
+    public int Hp;
 
     protected virtual void Start()
     {
@@ -48,5 +49,32 @@ public class PlayerMovement : MonoBehaviour
         hori = rotation * hori;
         rb.MovePosition(gameObject.transform.position + (transform.forward + hori) * speed * Time.deltaTime);
         //rb.MovePosition(gameObject.transform.position + transform.forward * speed * Time.deltaTime);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Obstacle"))
+        {
+            Hp--;
+        }
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+
+        if (collision.gameObject.CompareTag("Rock"))
+        {
+            Debug.Log("rock");
+            Hp--;
+            collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+
+            collision.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward * 20 + transform.up * 15), ForceMode.Impulse);
+        }
+        if(collision.gameObject.CompareTag("Tree"))
+        {
+            Debug.Log("tree"); 
+            collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            collision.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward * 20+transform.up*15), ForceMode.Impulse);
+
+        }
     }
 }
