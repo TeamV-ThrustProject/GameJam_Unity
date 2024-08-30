@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -14,6 +15,8 @@ public class CutSceneController : MonoBehaviour
     public float fadeDuration = 1f;
     public GameObject cutSceneObject;
     public float cutSceneDuration = 3.5f;
+
+    bool isNaturalDead;
 
     private void Start()
     {
@@ -35,10 +38,20 @@ public class CutSceneController : MonoBehaviour
 
     private IEnumerator CutSceneSequence()
     {
-        ac.SetActive(true);
-        unAc.GetComponent<PlayerMovement>().enabled = false;
-        unAc.SetActive(false);
-        ac.GetComponent<PlayerMovement>().enabled = false;
+        if(ac == null && unAc == null)
+        {
+            isNaturalDead = true;
+            
+        }
+
+        if (!isNaturalDead)
+        {
+            ac.SetActive(true);
+            unAc.GetComponent<PlayerMovement>().enabled = false;
+            unAc.SetActive(false);
+            ac.GetComponent<PlayerMovement>().enabled = false;
+        }
+        
 
 
         yield return StartCoroutine(FadeCoroutine(0f, 1f));
@@ -61,8 +74,11 @@ public class CutSceneController : MonoBehaviour
         }
 
         yield return StartCoroutine(FadeCoroutine(1f, 0f));
-
-        ac.GetComponent<PlayerMovement>().enabled = true;
+        
+        if(isNaturalDead)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        else    
+            ac.GetComponent<PlayerMovement>().enabled = true;
     }
 
     private IEnumerator FadeCoroutine(float startAlpha, float endAlpha)
