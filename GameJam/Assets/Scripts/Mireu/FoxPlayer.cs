@@ -60,15 +60,18 @@ public class FoxPlayer : PlayerMovement
 
 
 
+
     void HandleJump()
     {
         if (Input.GetKeyUp(KeyCode.Space) && isCharging && isGrounded)
         {
-            float jumpPower = jumpForce * (1 + chargeTime);
+            float chargeRatio = Mathf.Clamp01(chargeTime / maxChargeTime);
+            float jumpPower = jumpForce * (1f + chargeRatio);
+
             CharRigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+
             isCharging = false;
             chargeTime = 0f;
-            //Debug.Log("Jump with power: " + jumpPower);
         }
     }
 

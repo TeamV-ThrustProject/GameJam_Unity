@@ -22,18 +22,18 @@ public class RotateTrig : MonoBehaviour
 
     void Update()
     {
-        if(once)
+        /*if(once)
         {
             time += Time.deltaTime;
             
             player.transform.rotation = Quaternion.Slerp(player.transform.rotation,
-                 quat * transform.rotation, Time.deltaTime * 2f);
+                 quat * transform.rotation, Time.deltaTime * 5f);
 
             if (time >= 1f)
             { 
                 once = false;
             }
-        }
+        }*/
     }
 
     private void OnTriggerEnter(Collider other)
@@ -47,7 +47,7 @@ public class RotateTrig : MonoBehaviour
 
             player.GetComponent<PlayerMovement>().rotWeight += rot;
             quat = Quaternion.Euler(0, rot, 0);
-
+            player.transform.forward = quat * player.transform.forward;
             //StartCoroutine(MoveCamera(g));
 
         }

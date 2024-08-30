@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     protected virtual void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        Quaternion rotation = Quaternion.Euler(0, rotWeight, 0);
+        transform.forward = rotation * transform.forward;
     }
 
     protected virtual void Update()
