@@ -32,6 +32,10 @@ public class FoxPlayer : PlayerMovement
         HandleJump();
     }
 
+
+
+
+
     protected override void FixedUpdate()
     {
         base.FixedUpdate();
@@ -74,7 +78,7 @@ public class FoxPlayer : PlayerMovement
             chargeTime = 0f;
         }
     }
-
+    
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
