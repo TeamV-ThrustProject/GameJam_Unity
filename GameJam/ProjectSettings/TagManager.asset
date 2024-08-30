@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - Tree
   - Rock
+  - Water
   layers:
   - Default
   - TransparentFX

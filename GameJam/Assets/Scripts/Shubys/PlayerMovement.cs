@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Obstacle"))
+        if (other.gameObject.CompareTag("Obstacle")) //apple
         {
             Hp--;
         }
@@ -70,7 +70,14 @@ public class PlayerMovement : MonoBehaviour
             collision.gameObject.GetComponent<BearRunObjectBase>().SetRelease();
             collision.gameObject.GetComponent<BearRunObjectBase>().Turn = true;
         }
-        if(collision.gameObject.CompareTag("Tree"))
+
+        if (collision.gameObject.CompareTag("Water"))
+        {
+            Hp--;
+            
+        }
+
+        if (collision.gameObject.CompareTag("Tree"))
         {
             Debug.Log("tree"); 
             collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
