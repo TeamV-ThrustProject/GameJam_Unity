@@ -42,10 +42,11 @@ public class CutSceneController : MonoBehaviour
 
     private IEnumerator CutSceneSequence()
     {
-        if(ac == null && unAc == null)
+        if(ac == null)
         {
             isNaturalDead = true;
-            
+            unAc.GetComponent<PlayerMovement>().enabled = false;
+            //unAc.SetActive(false);
         }
 
         if (!isNaturalDead)
