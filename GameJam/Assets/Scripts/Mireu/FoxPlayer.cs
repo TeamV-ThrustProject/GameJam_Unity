@@ -21,7 +21,7 @@ public class FoxPlayer : PlayerMovement
     {
         base.Start();
         CharRigidbody = GetComponent<Rigidbody>();
-        animator = this.transform.GetChild(2).GetComponent<Animator>();
+        animator = this.transform.GetChild(1).GetComponent<Animator>();
     }
 
 
