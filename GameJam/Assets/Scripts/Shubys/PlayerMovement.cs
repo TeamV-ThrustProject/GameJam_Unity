@@ -9,9 +9,12 @@ public class PlayerMovement : MonoBehaviour
     public float forwardSpeed = 1.0f;
     public float speed = 1.0f;
     public float horizontalRot;
-    
-    Vector3 dir;
     public bool IsRotated;
+    public float rotWeight = 0;
+
+    Vector3 dir;
+    
+
 
     protected virtual void Start()
     {
@@ -28,15 +31,18 @@ public class PlayerMovement : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        if(!IsRotated)
+        Quaternion rotation = Quaternion.Euler(0,0,0);
+        if (!IsRotated)
         {
-            Quaternion Rotation = Quaternion.Euler(0, dir.x * horizontalRot, 0);
+            rotation = Quaternion.Euler(0, rotWeight, 0);
+            //Quaternion Rotation = Quaternion.Euler(0, rotWeight + dir.x * horizontalRot, 0);
 
-            rb.MoveRotation(Rotation);
+            rb.MoveRotation(rotation);
         }
 
-        
-
-        rb.MovePosition(gameObject.transform.position + transform.forward * speed * Time.deltaTime);
+        Vector3 hori = new Vector3(dir.x, 0, 0);
+        hori = rotation * hori;
+        rb.MovePosition(gameObject.transform.position + (transform.forward + hori) * speed * Time.deltaTime);
+        //rb.MovePosition(gameObject.transform.position + transform.forward * speed * Time.deltaTime);
     }
 }

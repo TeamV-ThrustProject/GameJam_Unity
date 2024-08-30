@@ -8,10 +8,12 @@ public class ChickenPlayer : PlayerMovement
     private bool isGrounded = false;
     public float jumpForce = 5f;
 
+    public Animator animator;
     protected override void Start()
     {
         base.Start();
         CharRigidbody = GetComponent<Rigidbody>();
+        animator =  this.transform.GetChild(2).GetComponent<Animator>();
     }
 
 
@@ -26,6 +28,7 @@ public class ChickenPlayer : PlayerMovement
         if (Input.GetKeyUp(KeyCode.Space) && isGrounded)
         {
             CharRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            Debug.Log("Jump");
         }
     }
 
@@ -34,6 +37,7 @@ public class ChickenPlayer : PlayerMovement
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            animator.SetBool("IsJump", false);
         }
     }
 
@@ -42,6 +46,8 @@ public class ChickenPlayer : PlayerMovement
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+
+            animator.SetBool("IsJump", true);
         }
     }
 }
