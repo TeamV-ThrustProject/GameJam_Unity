@@ -16,10 +16,12 @@ public class FoxPlayer : PlayerMovement
     private float chargeTime = 0f;
     public float maxChargeTime = 1.5f;
 
+    public Animator animator;
     protected override void Start()
     {
         base.Start();
         CharRigidbody = GetComponent<Rigidbody>();
+        animator = this.transform.GetChild(2).GetComponent<Animator>();
     }
 
 
@@ -75,6 +77,7 @@ public class FoxPlayer : PlayerMovement
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            animator.SetBool("IsJump", false);
         }
     }
 
@@ -83,6 +86,7 @@ public class FoxPlayer : PlayerMovement
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+            animator.SetBool("IsJump", true);
         }
     }
 }
