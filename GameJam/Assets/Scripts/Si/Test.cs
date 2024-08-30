@@ -13,7 +13,7 @@ public class Test : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             // 오브젝트풀 에서 빌려오기
-            var bulletGo = ObjectPoolManager.instance.GetGo("Apple");
+            var bulletGo = ObjectPoolManager.instance.GetObj("Apple");
 
             bulletGo.transform.position = this.SpawnPoint.position;
         }
