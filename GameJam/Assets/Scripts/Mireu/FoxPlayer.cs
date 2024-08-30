@@ -16,10 +16,12 @@ public class FoxPlayer : PlayerMovement
     private float chargeTime = 0f;
     public float maxChargeTime = 1.5f;
 
+    public Animator animator;
     protected override void Start()
     {
         base.Start();
         CharRigidbody = GetComponent<Rigidbody>();
+        animator = this.transform.GetChild(2).GetComponent<Animator>();
     }
 
 
@@ -58,15 +60,18 @@ public class FoxPlayer : PlayerMovement
 
 
 
+
     void HandleJump()
     {
         if (Input.GetKeyUp(KeyCode.Space) && isCharging && isGrounded)
         {
-            float jumpPower = jumpForce * (1 + chargeTime);
+            float chargeRatio = Mathf.Clamp01(chargeTime / maxChargeTime);
+            float jumpPower = jumpForce * (1f + chargeRatio);
+
             CharRigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
+
             isCharging = false;
             chargeTime = 0f;
-            //Debug.Log("Jump with power: " + jumpPower);
         }
     }
 
@@ -75,6 +80,7 @@ public class FoxPlayer : PlayerMovement
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
+            animator.SetBool("IsJump", false);
         }
     }
 
@@ -83,6 +89,7 @@ public class FoxPlayer : PlayerMovement
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+            animator.SetBool("IsJump", true);
         }
     }
 }

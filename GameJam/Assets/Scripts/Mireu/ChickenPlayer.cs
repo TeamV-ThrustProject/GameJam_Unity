@@ -46,7 +46,6 @@ public class ChickenPlayer : PlayerMovement
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
-
             animator.SetBool("IsJump", true);
         }
     }
