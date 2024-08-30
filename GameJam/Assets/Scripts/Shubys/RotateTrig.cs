@@ -12,7 +12,8 @@ public class RotateTrig : MonoBehaviour
 
     Vector3 rotation;
     bool once;
-
+    float time;
+    Quaternion quat;
 
     void Start()
     {
@@ -21,17 +22,33 @@ public class RotateTrig : MonoBehaviour
 
     void Update()
     {
-        
+        if(once)
+        {
+            time += Time.deltaTime;
+            
+            player.transform.rotation = Quaternion.Slerp(player.transform.rotation,
+                 quat * transform.rotation, Time.deltaTime * 2f);
+
+            if (time >= 1f)
+            { 
+                once = false;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player") && !once)
         {
+            time = 0f;
             once = true;
-            GameObject g = other.gameObject;
             
-            StartCoroutine(MoveCamera(g));
+            GameObject g = other.gameObject;
+
+            player.GetComponent<PlayerMovement>().rotWeight += rot;
+            quat = Quaternion.Euler(0, rot, 0);
+
+            //StartCoroutine(MoveCamera(g));
 
         }
     }
@@ -43,9 +60,9 @@ public class RotateTrig : MonoBehaviour
         //player.GetComponent<PlayerMovement>().IsRotated = true;
 
 
-        for (int i = 1; i < rot; i+=5)
+        for (int i = 0; i < rot; i+=3)
         {
-            yield return new WaitForSeconds(0.001f);
+            yield return new WaitForSeconds(0.01f);
             player.GetComponent<PlayerMovement>().rotWeight += i;
             Quaternion rotation = Quaternion.Euler(0, i, 0);
             //player.transform.forward = rotation * player.transform.forward;
