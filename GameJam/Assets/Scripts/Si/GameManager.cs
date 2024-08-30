@@ -9,12 +9,14 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+
         if (GameManagerInstance == null)
             GameManagerInstance = this;
         else
             Destroy(this.gameObject);
     }
-
+    [SerializeField]
+    public GameObject[] Player;
     [SerializeField]
     public int Delay;
     int t;
@@ -98,6 +100,4 @@ public class GameManager : MonoBehaviour
             list[n] = value;
         }
     }
-
-
 }
