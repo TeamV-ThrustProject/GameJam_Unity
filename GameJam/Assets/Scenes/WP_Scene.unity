@@ -53061,7 +53061,11 @@ Animator:
   m_StabilizeFeet: 0
   m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
     are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tFrom animation clip 'mixamo.com'"
+    by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+    'mixamorig:LeftHandIndex1'\n\tTransform 'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform
+    'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform
+    'mixamorig:RightHandIndex3'\n\tTransform 'mixamorig:RightFoot'\n\tand more ...\n\tFrom
+    animation clip 'mixamo.com'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -53099,6 +53103,74 @@ Transform:
   - {fileID: 2563496968112384673}
   m_Father: {fileID: 7078722787003754132}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &6000430802034598259
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3829132822967640557, guid: 9c86c0b986c0da644a267112cca478c2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -50.79
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829132822967640557, guid: 9c86c0b986c0da644a267112cca478c2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 35.044
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829132822967640557, guid: 9c86c0b986c0da644a267112cca478c2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -291.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829132822967640557, guid: 9c86c0b986c0da644a267112cca478c2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9926501
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829132822967640557, guid: 9c86c0b986c0da644a267112cca478c2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.121019706
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829132822967640557, guid: 9c86c0b986c0da644a267112cca478c2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829132822967640557, guid: 9c86c0b986c0da644a267112cca478c2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829132822967640557, guid: 9c86c0b986c0da644a267112cca478c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 13.902
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829132822967640557, guid: 9c86c0b986c0da644a267112cca478c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829132822967640557, guid: 9c86c0b986c0da644a267112cca478c2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7587863184830883069, guid: 9c86c0b986c0da644a267112cca478c2,
+        type: 3}
+      propertyPath: m_Name
+      value: FOXHOUSE
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c86c0b986c0da644a267112cca478c2, type: 3}
 --- !u!33 &6083188296983820757
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -54775,3 +54847,4 @@ SceneRoots:
   - {fileID: 740365176}
   - {fileID: 2033993559}
   - {fileID: 533093143}
+  - {fileID: 6000430802034598259}
