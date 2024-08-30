@@ -21,6 +21,6 @@ public class CameraMovement : MonoBehaviour
     {
         Vector3 targetPos = player.position + posWeight;
 
-        transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * 2f);
+        transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * 4f);
     }
 }

@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float horizontalRot;
     
     Vector3 dir;
+    public bool IsRotated;
 
     protected virtual void Start()
     {
@@ -27,9 +28,15 @@ public class PlayerMovement : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        //Quaternion Rotation = Quaternion.Euler(transform.rotation.x, dir.x * horizontalRot, transform.rotation.z);
+        if(!IsRotated)
+        {
+            Quaternion Rotation = Quaternion.Euler(0, dir.x * horizontalRot, 0);
+
+            rb.MoveRotation(Rotation);
+        }
+
         
-        //rb.MoveRotation(Rotation);
-        rb.MovePosition(gameObject.transform.position + dir * speed * Time.deltaTime);
+
+        rb.MovePosition(gameObject.transform.position + transform.forward * speed * Time.deltaTime);
     }
 }
