@@ -4,6 +4,17 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    public static GameManager GameManagerInstance;
+
+    private void Awake()
+    {
+        if (GameManagerInstance == null)
+            GameManagerInstance = this;
+        else
+            Destroy(this.gameObject);
+    }
+
     [SerializeField]
     int Delay;
     int t;
@@ -12,7 +23,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     GameObject[] ObstacleSpawnPos;
     [SerializeField]
-    int Stage;
+    public int Stage;
+
+
     // Start is called before the first frame update
     void Start()
     {
