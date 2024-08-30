@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     }
 
     [SerializeField]
-    int Delay;
+    public int Delay;
     int t;
     [SerializeField]
     string[] ObjName;

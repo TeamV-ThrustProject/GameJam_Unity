@@ -1217,7 +1217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c4378b23837dc4080f87a2f376b187, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Delay: 20
+  Delay: 60
   ObjName:
   - Apple
   - Branch
@@ -1234,7 +1234,7 @@ MonoBehaviour:
   - {fileID: 522102951}
   - {fileID: 454867654}
   - {fileID: 542804128}
-  Stage: 2
+  Stage: 4
 --- !u!4 &1433787972
 Transform:
   m_ObjectHideFlags: 0
