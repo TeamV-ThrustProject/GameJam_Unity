@@ -7,6 +7,9 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class CutSceneController : MonoBehaviour
 {
+    public GameObject unAc;
+    public GameObject ac;
+
     public Image fadeImage;
     public float fadeDuration = 1f;
     public GameObject cutSceneObject;
@@ -32,12 +35,21 @@ public class CutSceneController : MonoBehaviour
 
     private IEnumerator CutSceneSequence()
     {
+        ac.SetActive(true);
+        unAc.GetComponent<PlayerMovement>().enabled = false;
+        unAc.SetActive(false);
+        ac.GetComponent<PlayerMovement>().enabled = false;
+
+
         yield return StartCoroutine(FadeCoroutine(0f, 1f));
 
         if (cutSceneObject != null)
         {
             cutSceneObject.SetActive(true);
         }
+
+        
+
         yield return StartCoroutine(FadeCoroutine(1f, 0f));
 
         yield return new WaitForSeconds(cutSceneDuration);
@@ -49,6 +61,8 @@ public class CutSceneController : MonoBehaviour
         }
 
         yield return StartCoroutine(FadeCoroutine(1f, 0f));
+
+        ac.GetComponent<PlayerMovement>().enabled = true;
     }
 
     private IEnumerator FadeCoroutine(float startAlpha, float endAlpha)

@@ -22,7 +22,7 @@ public class Branch : ObjectBase
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            DropTree.GetComponent<Rigidbody>().useGravity=true;
+            GetComponent<Rigidbody>().useGravity=true;
         }
     }
 }

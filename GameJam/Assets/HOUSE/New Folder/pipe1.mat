@@ -23,7 +23,7 @@ Material:
   m_Name: pipe1
   m_Shader: {fileID: -6465566751694194690, guid: 2c3c6a46626419c4f8bbdeab2ec2afbd,
     type: 3}
-  m_Parent: {fileID: 2100000, guid: 3e63aacc9ff7e304897d1313450bebe1, type: 2}
+  m_Parent: {fileID: 2100000, guid: 3a6bbe27fd4623c4f9c389ad8b6bfe04, type: 2}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - _HAFTONESHAPES_DOT
@@ -40,10 +40,6 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Ints: []
-    m_Floats:
-    - Vector1_0f3ca3289daa40b4a7654cc64fd05ec1: 0.214
-    - Vector1_c89cb8dc56774a9583c7b9c3a5725c4c: 0.244
-    - _SpecColor_1: 0.432
-    m_Colors:
-    - _BaseColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 1}
+    m_Floats: []
+    m_Colors: []
   m_BuildTextureStacks: []
