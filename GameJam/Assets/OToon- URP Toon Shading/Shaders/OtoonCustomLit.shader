@@ -154,7 +154,11 @@ Shader "URP/OToonCustomLit"
         Pass
         {
             Name "ForwardLit"
+<<<<<<< HEAD
+            Tags { "LightMode" = "UniversalForward" }
+=======
             Tags { "LightMode" = "UniversalForwardOnly" }
+>>>>>>> d36066d8777df2ecd749faeb027f5f88f0f803d7
 
             Stencil
             {
@@ -198,7 +202,10 @@ Shader "URP/OToonCustomLit"
             #pragma multi_compile _ LIGHTMAP_SHADOW_MIXING
             #pragma multi_compile _ SHADOWS_SHADOWMASK
             #pragma multi_compile_fragment _ _SCREEN_SPACE_OCCLUSION
+<<<<<<< HEAD
+=======
             #pragma multi_compile_fragment _ _FORWARD_PLUS
+>>>>>>> d36066d8777df2ecd749faeb027f5f88f0f803d7
 
             // -------------------------------------
             // Unity defined keywords
@@ -247,7 +254,10 @@ Shader "URP/OToonCustomLit"
             // GPU Instancing
             #pragma multi_compile_instancing
             #pragma multi_compile _ DOTS_INSTANCING_ON
+<<<<<<< HEAD
+=======
             #pragma multi_compile_vertex _ _CASTING_PUNCTUAL_LIGHT_SHADOW
+>>>>>>> d36066d8777df2ecd749faeb027f5f88f0f803d7
 
             #pragma vertex ShadowPassVertex
             #pragma fragment ShadowPassFragment
@@ -291,6 +301,8 @@ Shader "URP/OToonCustomLit"
             ENDHLSL
 
         }
+<<<<<<< HEAD
+=======
         
         Pass
         {
@@ -358,6 +370,7 @@ Shader "URP/OToonCustomLit"
             #include "Packages/com.unity.render-pipelines.universal/Shaders/SimpleLitDepthNormalsPass.hlsl"
             ENDHLSL
         }
+>>>>>>> d36066d8777df2ecd749faeb027f5f88f0f803d7
 
         // This pass it not used during regular rendering, only for lightmap baking.
         Pass
