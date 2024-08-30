@@ -10110,7 +10110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forwardSpeed: 1
-  speed: 10
+  speed: 7
   horizontalRot: 35
   IsRotated: 0
   rotWeight: 0
@@ -10529,6 +10529,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: bear
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516341498629248938, guid: 7412f116a9537514cb677d80a5e0e152,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516341498629248938, guid: 7412f116a9537514cb677d80a5e0e152,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5516341498629248938, guid: 7412f116a9537514cb677d80a5e0e152,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5516341498629248938, guid: 7412f116a9537514cb677d80a5e0e152,
         type: 3}
@@ -20603,9 +20618,9 @@ MonoBehaviour:
   ObjName:
   - Apple
   - Branch
-  - Rock
   - Tree
   - Grass
+  - Rock
   - Empty
   - Honey
   ObstacleSpawnPos:
@@ -36470,15 +36485,15 @@ MonoBehaviour:
     Perfeb: {fileID: 7796183883925093823, guid: b53ca02b1bb3b9240be14d1c0b806e67,
       type: 3}
     Count: 20
-  - ObjectName: Rock
-    Perfeb: {fileID: 2216376863386726392, guid: b8a4db02831d1f248a869b7b850ff4e0,
-      type: 3}
-    Count: 20
   - ObjectName: Tree
     Perfeb: {fileID: 908360140420936938, guid: 25b55cc29973c86429dc74612028a003, type: 3}
     Count: 20
   - ObjectName: Grass
     Perfeb: {fileID: 2195529844148078782, guid: 7756658fdf86b7d4b8b7c6e050ffe73a,
+      type: 3}
+    Count: 20
+  - ObjectName: Rock
+    Perfeb: {fileID: 2216376863386726392, guid: b8a4db02831d1f248a869b7b850ff4e0,
       type: 3}
     Count: 20
   - ObjectName: Empty

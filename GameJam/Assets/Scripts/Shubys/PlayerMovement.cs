@@ -67,6 +67,8 @@ public class PlayerMovement : MonoBehaviour
             Hp--;
             collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             collision.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward * 20 + transform.up * 15), ForceMode.Impulse);
+            collision.gameObject.GetComponent<BearRunObjectBase>().SetRelease();
+            collision.gameObject.GetComponent<BearRunObjectBase>().Turn = true;
         }
         if(collision.gameObject.CompareTag("Tree"))
         {
@@ -74,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
             collision.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward * 20+transform.up*15), ForceMode.Impulse);
             collision.gameObject.GetComponent<BearRunObjectBase>().SetRelease();
+            collision.gameObject.GetComponent<BearRunObjectBase>().Turn = true;
+
 
         }
     }
