@@ -5,16 +5,16 @@ using UnityEngine;
 
 
 
-public class TestSS : PlayerMovement
+public class FoxPlayer : PlayerMovement
 {
     Rigidbody CharRigidbody;
     public float jumpForce = 5f;
-    public float maxChargeTime = 3.0f;
 
     private bool isGrounded = false;
     private bool isCharging = false;
     private float chargeStartTime;
     private float chargeTime = 0f;
+    public float maxChargeTime = 1.5f;
 
     protected override void Start()
     {
@@ -41,15 +41,22 @@ public class TestSS : PlayerMovement
         {
             isCharging = true;
             chargeStartTime = Time.time;
-            Debug.Log("Charging Start");
+            //Debug.Log("Charging Start");
         }
 
         if (Input.GetKey(KeyCode.Space) && isCharging)
         {
             chargeTime = Mathf.Min(Time.time - chargeStartTime, maxChargeTime);
+
+            if (chargeTime > maxChargeTime)
+            {
+                chargeTime = maxChargeTime;
+            }
             Debug.Log("Charging: " + chargeTime);
         }
     }
+
+
 
     void HandleJump()
     {
@@ -59,7 +66,7 @@ public class TestSS : PlayerMovement
             CharRigidbody.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
             isCharging = false;
             chargeTime = 0f;
-            Debug.Log("Jump with power: " + jumpPower);
+            //Debug.Log("Jump with power: " + jumpPower);
         }
     }
 
