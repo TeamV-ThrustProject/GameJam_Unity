@@ -12,12 +12,12 @@ public class PlayerMovement : MonoBehaviour
     
     Vector3 dir;
 
-    void Start()
+    protected virtual void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    protected virtual void Update()
     {
         dir.x = Input.GetAxis("Horizontal");
         //dir.z = Input.GetAxisRaw("Vertical");
@@ -25,11 +25,11 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
-        Quaternion Rotation = Quaternion.Euler(transform.rotation.x, dir.x * horizontalRot, transform.rotation.z);
+        //Quaternion Rotation = Quaternion.Euler(transform.rotation.x, dir.x * horizontalRot, transform.rotation.z);
         
-        rb.MoveRotation(Rotation);
+        //rb.MoveRotation(Rotation);
         rb.MovePosition(gameObject.transform.position + dir * speed * Time.deltaTime);
     }
 }

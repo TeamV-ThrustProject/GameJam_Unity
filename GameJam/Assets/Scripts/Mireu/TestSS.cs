@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 
-public class TestSS : MonoBehaviour
+public class TestSS : PlayerMovement
 {
     Rigidbody CharRigidbody;
     public float jumpForce = 5f;
@@ -16,18 +16,23 @@ public class TestSS : MonoBehaviour
     private float chargeStartTime;
     private float chargeTime = 0f;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         CharRigidbody = GetComponent<Rigidbody>();
     }
 
-    // Update를 override하여 기존 기능에 점프 로직을 추가합니다
-    void Update()
-    {
 
-        // 점프 관련 로직 추가
+    protected override void Update()
+    {
+        base.Update();
         HandleCharging();
         HandleJump();
+    }
+
+    protected override void FixedUpdate()
+    {
+        base.FixedUpdate();
     }
 
     void HandleCharging()
