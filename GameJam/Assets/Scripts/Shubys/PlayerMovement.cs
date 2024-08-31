@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -31,6 +32,14 @@ public class PlayerMovement : MonoBehaviour
         dir.x = Input.GetAxis("Horizontal");
         //dir.z = Input.GetAxisRaw("Vertical");
         dir.z = forwardSpeed;
+
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            if (SceneManager.GetActiveScene().name.Equals("A"))
+                SceneManager.LoadScene("B");
+            else
+                SceneManager.LoadScene("A");
+        }
 
     }
 
