@@ -54,6 +54,7 @@ public class CutSceneController : MonoBehaviour
         if (!isNaturalDead)
         {
             ac.SetActive(true);
+            ac.transform.GetChild(1).gameObject.SetActive(false);
             unAc.GetComponent<PlayerMovement>().enabled = false;
             unAc.SetActive(false);
             ac.GetComponent<PlayerMovement>().enabled = false;
@@ -83,9 +84,9 @@ public class CutSceneController : MonoBehaviour
         if (ac == unAc)
             Application.Quit();
 
-        yield return StartCoroutine(FadeCoroutine(1f, 0f));        
+        yield return StartCoroutine(FadeCoroutine(1f, 0f));
 
-            if (isNaturalDead)
+        if (isNaturalDead)
         {
             if (SceneManager.GetActiveScene().name.Equals("A"))
                 SceneManager.LoadScene("B");
@@ -94,7 +95,10 @@ public class CutSceneController : MonoBehaviour
 
         }
         else
+        {
             ac.GetComponent<PlayerMovement>().enabled = true;
+            ac.transform.GetChild(1).gameObject.SetActive(true);
+        }
     }
 
     private IEnumerator FadeCoroutine(float startAlpha, float endAlpha)

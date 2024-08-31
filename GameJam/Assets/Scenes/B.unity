@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.262814, g: 0.7014316, b: 0.83198744, a: 1}
+  m_IndirectSpecularColor: {r: 0.26230463, g: 0.7014565, b: 0.83241963, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4515,7 +4515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &128889844
 Transform:
   m_ObjectHideFlags: 0
@@ -13735,11 +13735,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forwardSpeed: 1
-  speed: 6
+  speed: 10
   horizontalRot: 35
   IsRotated: 0
   rotWeight: 0
-  Hp: 0
+  Hp: 2
 --- !u!54 &354267630
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -13869,7 +13869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b4cedb4fe897a741a098d249ff94640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unAc: {fileID: 0}
+  unAc: {fileID: 354267628}
   ac: {fileID: 0}
   fadeImage: {fileID: 1782167334}
   fadeDuration: 1
@@ -42523,7 +42523,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &990576337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47166,6 +47166,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1333273509}
     m_Modifications:
+    - target: {fileID: 443086942633734297, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443086942633734297, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443086942633734297, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532660705839308198, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: fadeImage
+      value: 
+      objectReference: {fileID: 1782167334}
+    - target: {fileID: 6532660705839308198, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: cutSceneObject
+      value: 
+      objectReference: {fileID: 1505734489}
     - target: {fileID: 7228581781171830276, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -53069,6 +53094,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 497584587}
     m_Modifications:
+    - target: {fileID: 443086942633734297, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443086942633734297, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443086942633734297, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532660705839308198, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: fadeImage
+      value: 
+      objectReference: {fileID: 1782167334}
+    - target: {fileID: 6532660705839308198, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: cutSceneObject
+      value: 
+      objectReference: {fileID: 1505734489}
     - target: {fileID: 7228581781171830276, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -57541,6 +57591,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 415534221}
     m_Modifications:
+    - target: {fileID: 443086942633734297, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443086942633734297, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443086942633734297, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532660705839308198, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: fadeImage
+      value: 
+      objectReference: {fileID: 1782167334}
+    - target: {fileID: 6532660705839308198, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: cutSceneObject
+      value: 
+      objectReference: {fileID: 1505734489}
     - target: {fileID: 7228581781171830276, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -76290,6 +76365,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1574347991}
     m_Modifications:
+    - target: {fileID: 443086942633734297, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443086942633734297, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443086942633734297, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532660705839308198, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: fadeImage
+      value: 
+      objectReference: {fileID: 1782167334}
+    - target: {fileID: 6532660705839308198, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: cutSceneObject
+      value: 
+      objectReference: {fileID: 1505734489}
     - target: {fileID: 7228581781171830276, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -82244,6 +82344,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1406056079}
     m_Modifications:
+    - target: {fileID: 443086942633734297, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443086942633734297, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 443086942633734297, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6532660705839308198, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: fadeImage
+      value: 
+      objectReference: {fileID: 1782167334}
+    - target: {fileID: 6532660705839308198, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
+        type: 3}
+      propertyPath: cutSceneObject
+      value: 
+      objectReference: {fileID: 1505734489}
     - target: {fileID: 7228581781171830276, guid: fc7adbb4b2e57a24eac95ed919d2edfe,
         type: 3}
       propertyPath: m_LocalPosition.x
