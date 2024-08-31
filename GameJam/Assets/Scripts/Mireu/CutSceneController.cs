@@ -42,7 +42,9 @@ public class CutSceneController : MonoBehaviour
 
     private IEnumerator CutSceneSequence()
     {
-        if(ac == null)
+        if(ac == unAc)
+            unAc.GetComponent<PlayerMovement>().enabled = false;
+        else if (ac == null)
         {
             isNaturalDead = true;
             unAc.GetComponent<PlayerMovement>().enabled = false;
@@ -78,9 +80,12 @@ public class CutSceneController : MonoBehaviour
             cutSceneObject.SetActive(false);
         }
 
-        yield return StartCoroutine(FadeCoroutine(1f, 0f));
+        if (ac == unAc)
+            Application.Quit();
 
-        if (isNaturalDead)
+        yield return StartCoroutine(FadeCoroutine(1f, 0f));        
+
+            if (isNaturalDead)
         {
             if (SceneManager.GetActiveScene().name.Equals("A"))
                 SceneManager.LoadScene("B");
