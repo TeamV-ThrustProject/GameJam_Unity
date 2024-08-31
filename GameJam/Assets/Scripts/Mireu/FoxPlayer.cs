@@ -31,9 +31,13 @@ public class FoxPlayer : PlayerMovement
         HandleCharging();
         HandleJump();
     }
+    public float groundCheckDistance = 0.1f;
+    public LayerMask groundLayer;
 
-
-
+    void CheckGrounded()
+    {
+        isGrounded = Physics.Raycast(transform.position, Vector3.down, 3, groundLayer);
+    }
 
 
     protected override void FixedUpdate()
@@ -79,21 +83,5 @@ public class FoxPlayer : PlayerMovement
         }
     }
     
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-            animator.SetBool("IsJump", false);
-        }
-    }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-            animator.SetBool("IsJump", true);
-        }
-    }
 }
