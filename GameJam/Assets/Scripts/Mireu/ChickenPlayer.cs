@@ -6,6 +6,7 @@ public class ChickenPlayer : PlayerMovement
 {
     Rigidbody CharRigidbody;
     private bool isGrounded = false;
+    private bool CanJump = true;
     public float jumpForce = 5f;
 
     public Animator animator;
@@ -20,38 +21,26 @@ public class ChickenPlayer : PlayerMovement
     protected override void Update()
     {
         base.Update();
-        HandleJump();
-        if(Hp<=0)
+        if (Input.GetKeyUp(KeyCode.Space) && CanJump)
+        {
+            CharRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            CanJump = false;
+        }
+        if (Hp<=0)
         {
             GetComponent<CutSceneController>().PlayCutScene();
             speed = 0;
         }
     }
 
-    void HandleJump()
-    {
-        if (Input.GetKeyUp(KeyCode.Space) && isGrounded)
-        {
-            CharRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            Debug.Log("Jump");
-        }
-    }
+ 
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true;
+            CanJump = true;
             animator.SetBool("IsJump", false);
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-            animator.SetBool("IsJump", true);
         }
     }
 }
