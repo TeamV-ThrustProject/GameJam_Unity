@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
     GameObject[] ObstacleSpawnPos;
     [SerializeField]
     public int Stage;
-
+    [SerializeField]
+    GameObject Bear;
 
     // Start is called before the first frame update
     void Start()
@@ -48,13 +49,13 @@ public class GameManager : MonoBehaviour
                 case 4:
                     List<int> list = SpawnBearRunObject();
                     Shuffle(list);
-                    for(int i=0;i<5;i++)
-                    {
-                        if (list[i] == 5) continue;
-                        else
-                            ObjectPoolManager.instance.GetObj(ObjName[list[i]]).transform.position =
-                                ObstacleSpawnPos[i+2].transform.position;
-                    }
+                      for(int i=0;i<5;i++)
+                        {
+                           if (list[i] == 5) continue;
+                           else
+                                ObjectPoolManager.instance.GetObj(ObjName[list[i]]).transform.position =
+                                    ObstacleSpawnPos[i+2].transform.position;
+                        }
                     break;
             }
     }

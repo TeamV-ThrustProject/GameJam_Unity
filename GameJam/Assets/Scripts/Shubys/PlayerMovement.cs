@@ -66,6 +66,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Hp--;
         }
+
+        if (other.CompareTag("CutTrg"))
+        {
+            other.GetComponent<CutSceneController>().PlayCutScene();
+        }
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -84,7 +89,6 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Water"))
         {
             Hp--;
-
         }
 
         if (collision.gameObject.CompareTag("Tree"))

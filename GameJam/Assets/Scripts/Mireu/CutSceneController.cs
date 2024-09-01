@@ -111,11 +111,5 @@ public class CutSceneController : MonoBehaviour
         fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, endAlpha);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            PlayCutScene();
-        }
-    }
+
 }

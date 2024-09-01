@@ -7,7 +7,8 @@ public class HunterPlayer : PlayerMovement
     Rigidbody CharRigidbody;
     private bool CanJump = true;
     public float jumpForce = 5f;
-
+    [SerializeField]
+    GameObject Player;
     public Animator animator;
     protected override void Start()
     {
@@ -39,5 +40,25 @@ public class HunterPlayer : PlayerMovement
             CanJump = true;
             animator.SetBool("IsJump", false);
         }
+    }
+
+        void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("MemoryTrg"))
+        {
+            Player.SetActive(true);
+            gameObject.SetActive(false);
+        }
+
+        if (other.CompareTag("EndCutTrg"))
+        {
+            other.GetComponent<CutSceneController>().PlayCutScene();
+        }
+
+    }
+    private void OnEnable()
+    {
+        base.OnEnable();
+        rotWeight = 90;
     }
 }

@@ -10,6 +10,9 @@ TagManager:
   - Tree
   - Rock
   - Water
+  - CutTrg
+  - EndCutTrg
+  - MemoryTrg
   layers:
   - Default
   - TransparentFX

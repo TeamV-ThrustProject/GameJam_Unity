@@ -27,7 +27,19 @@ public class BearPlayer : PlayerMovement
 
     void OnEnable()
     {
-        base.OnEnable();
-        GameManager.GameManagerInstance.Delay = 150;
+        ;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Obstacle")) //apple
+        {
+            Hp--;
+        }
+
+        if (other.CompareTag("CutTrg"))
+        {
+            other.GetComponent<CutSceneController>().PlayCutScene();
+        }
     }
 }
