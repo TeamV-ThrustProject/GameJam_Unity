@@ -54,7 +54,10 @@ public class HunterPlayer : PlayerMovement
         {
             other.GetComponent<CutSceneController>().PlayCutScene();
         }
-
+        if (other.CompareTag("CutTrg"))
+        {
+            other.GetComponent<CutSceneController>().PlayCutScene();
+        }
     }
     private void OnEnable()
     {
