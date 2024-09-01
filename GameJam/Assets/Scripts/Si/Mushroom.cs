@@ -19,8 +19,10 @@ public class Mushroom : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 20,ForceMode.Impulse);
-            Debug.Log("asdsadasdasd");
+            if (other.gameObject.name.Equals("PlayerBaseHunter"))
+                gameObject.SetActive(false);
+            else
+                other.gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 20, ForceMode.Impulse);
 
         }
     }

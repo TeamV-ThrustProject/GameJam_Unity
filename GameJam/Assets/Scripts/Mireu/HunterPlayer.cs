@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI.Table;
 
 public class HunterPlayer : PlayerMovement
 {
     Rigidbody CharRigidbody;
     private bool CanJump = true;
-    public float jumpForce = 5f;
+    public float jumpForce = 1f;
     [SerializeField]
     GameObject Player;
     public Animator animator;
@@ -21,17 +23,13 @@ public class HunterPlayer : PlayerMovement
     protected override void Update()
     {
         base.Update();
-        HandleJump();
-    }
-
-    void HandleJump()
-    {
         if (Input.GetKeyUp(KeyCode.Space) && CanJump)
         {
             CharRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             CanJump = false;
         }
     }
+
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -49,7 +47,15 @@ public class HunterPlayer : PlayerMovement
             Player.SetActive(true);
             gameObject.SetActive(false);
         }
-
+        if (other.CompareTag("turn"))
+        {
+            GameObject g = other.gameObject;
+            Quaternion quat;
+            Debug.Log("turnturn");
+            GetComponent<PlayerMovement>().rotWeight += 5;
+            quat = Quaternion.Euler(0, 5, 0);
+            transform.forward = quat * transform.forward;
+        }
         if (other.CompareTag("EndCutTrg"))
         {
             other.GetComponent<CutSceneController>().PlayCutScene();
