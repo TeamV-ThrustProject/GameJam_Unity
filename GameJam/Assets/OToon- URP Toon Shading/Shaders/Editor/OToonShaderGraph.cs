@@ -8,7 +8,7 @@ using OToon;
 using UnityEngine.Rendering.Universal;
 using System.Linq;
 
-public class OToonShaderGraph : StandardBaseShaderGUI
+public class OtoonShaderGraph : StandardBaseShaderGUI
 {
     public enum PatternSampleSpace
     {
@@ -57,8 +57,8 @@ public class OToonShaderGraph : StandardBaseShaderGUI
         base.FindProperties(properties);
         m_RampColorProp = BaseShaderGUI.FindProperty("_USERAMPCOLOR", properties, false);
         m_RimLightEnabledProp = BaseShaderGUI.FindProperty("_RIMLIGHTING", properties, false);
-        m_SpecLightEnabledProp = BaseShaderGUI.FindProperty("_SPECULARHIGHTLIGHTS", properties, false);
         m_halfToneEnabledProp = BaseShaderGUI.FindProperty("_HalfToneEnabled", properties, false);
+        m_SpecLightEnabledProp = BaseShaderGUI.FindProperty("_SPECULARHIGHLIGHTS", properties, false);
         m_halfToneShapeProp = BaseShaderGUI.FindProperty("_HAFTONESHAPES", properties, false);
         m_hatchingEnabledProp = BaseShaderGUI.FindProperty("_HatchingEnabled", properties, false);
     }
@@ -113,9 +113,9 @@ public class OToonShaderGraph : StandardBaseShaderGUI
         {
             if (m_SpecLightEnabledProp != null)
             {
-                materialEditor.DrawKeywordToggle(m_SpecLightEnabledProp, "_SPECULARHIGHTLIGHTS", "Enable Specular Lighting");
+                materialEditor.DrawKeywordToggle(m_SpecLightEnabledProp, "_SPECULARHIGHLIGHTS", "Enable Specular Lighting");
             }
-            if (!material.IsKeywordEnabled("_SPECULARHIGHTLIGHTS"))
+            if (!material.IsKeywordEnabled("_SPECULARHIGHLIGHTS"))
             {
                 GUI.enabled = false;
             }

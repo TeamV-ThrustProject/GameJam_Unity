@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
-        
+
     public float forwardSpeed = 1.0f;
     public float speed = 1.0f;
     public float horizontalRot;
@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
     protected virtual void FixedUpdate()
     {
-        Quaternion rotation = Quaternion.Euler(0,0,0);
+        Quaternion rotation = Quaternion.Euler(0, 0, 0);
         if (!IsRotated)
         {
             rotation = Quaternion.Euler(0, rotWeight, 0);
@@ -78,23 +78,28 @@ public class PlayerMovement : MonoBehaviour
             collision.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward * 20 + transform.up * 15), ForceMode.Impulse);
             collision.gameObject.GetComponent<BearRunObjectBase>().SetRelease();
             collision.gameObject.GetComponent<BoxCollider>().enabled = false;
+            collision.gameObject.GetComponent<BearRunObjectBase>().Turn = true;
         }
 
         if (collision.gameObject.CompareTag("Water"))
         {
             Hp--;
-            
+
         }
 
         if (collision.gameObject.CompareTag("Tree"))
         {
-            Debug.Log("tree"); 
+            Debug.Log("tree");
             collision.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            collision.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward * 20+transform.up*15), ForceMode.Impulse);
+            collision.gameObject.GetComponent<Rigidbody>().AddForce((transform.forward * 20 + transform.up * 15), ForceMode.Impulse);
             collision.gameObject.GetComponent<BearRunObjectBase>().SetRelease();
+            collision.gameObject.GetComponent<BearRunObjectBase>().Turn = true;
             collision.gameObject.GetComponent<BoxCollider>().enabled = false;
-
-
         }
+    }
+
+    protected void OnEnable()
+    {
+        GameManager.GameManagerInstance.Stage++;
     }
 }

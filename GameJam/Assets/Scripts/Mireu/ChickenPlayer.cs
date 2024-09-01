@@ -43,4 +43,8 @@ public class ChickenPlayer : PlayerMovement
             animator.SetBool("IsJump", false);
         }
     }
+    void OnEnable()
+    {
+        ;
+    }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 public class BearPlayer : PlayerMovement
 {
     Rigidbody CharRigidbody;
-    
+
 
     protected override void Start()
     {
@@ -18,12 +18,16 @@ public class BearPlayer : PlayerMovement
     protected override void Update()
     {
         base.Update();
-        if(Hp <= 0)
+        if (Hp <= 0)
         {
             GetComponent<CutSceneController>().PlayCutScene();
             speed = 0;
         }
     }
 
-
+    void OnEnable()
+    {
+        base.OnEnable();
+        GameManager.GameManagerInstance.Delay = 150;
+    }
 }

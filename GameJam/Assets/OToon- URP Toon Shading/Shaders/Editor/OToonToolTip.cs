@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace OToon
 {
-    public static class OToonToolTip
+    public static class OtoonToolTip
     {
         public static Dictionary<string, string> Tips = new Dictionary<string, string>
     {

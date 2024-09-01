@@ -5,7 +5,7 @@ using UnityEngine;
 public class HunterPlayer : PlayerMovement
 {
     Rigidbody CharRigidbody;
-    private bool isGrounded = false;
+    private bool CanJump = true;
     public float jumpForce = 5f;
 
     public Animator animator;
@@ -25,10 +25,10 @@ public class HunterPlayer : PlayerMovement
 
     void HandleJump()
     {
-        if (Input.GetKeyUp(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyUp(KeyCode.Space) && CanJump)
         {
             CharRigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            Debug.Log("Jump");
+            CanJump = false;
         }
     }
 
@@ -36,17 +36,8 @@ public class HunterPlayer : PlayerMovement
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true;
+            CanJump = true;
             animator.SetBool("IsJump", false);
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = false;
-            animator.SetBool("IsJump", true);
         }
     }
 }
